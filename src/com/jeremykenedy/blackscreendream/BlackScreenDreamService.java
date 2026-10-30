@@ -8,4 +8,11 @@ public final class BlackScreenDreamService extends DreamService {
         setScreenBright(false);
         setContentView(BlackScreen.create(this, getWindow()));
     }
+    @Override public void onDreamingStarted() {
+        super.onDreamingStarted();
+        // DreamService does not forward changed window attributes to WindowManager.
+        BlackScreen.applyBrightness(getWindow());
+        getWindow().getWindowManager().updateViewLayout(
+                getWindow().getDecorView(), getWindow().getAttributes());
+    }
 }

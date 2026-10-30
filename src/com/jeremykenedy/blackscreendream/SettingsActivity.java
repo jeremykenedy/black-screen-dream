@@ -19,7 +19,7 @@ public final class SettingsActivity extends Activity {
         title.setText("Black Screen"); title.setTextSize(28);
         layout.addView(title);
         TextView description = new TextView(this);
-        description.setText("A completely black screensaver. No clock, text, animation, or sound. This does not turn the TV off.");
+        description.setText("A completely black screensaver. No clock, text, animation, or sound. Requests the lowest available brightness while open. The TV stays on.");
         layout.addView(description);
         Button preview = new Button(this); preview.setText("Preview black screen");
         preview.setOnClickListener(v -> startActivity(new Intent(this, PreviewActivity.class)));
